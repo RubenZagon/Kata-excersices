@@ -1,0 +1,24 @@
+{
+  "name": "Kata-excersices",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch":"jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RubenZagon/Kata-excersices.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RubenZagon/Kata-excersices/issues"
+  },
+  "homepage": "https://github.com/RubenZagon/Kata-excersices#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
