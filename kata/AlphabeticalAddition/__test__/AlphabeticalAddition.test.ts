@@ -1,11 +1,7 @@
-var _AlphabeticalAddition = require("../AlphabeticalAddition.ts");
+import {addLetters} from "../AlphabeticalAddition";
 
-// interface KataFunction {
-//   addLetters: (...letters: string[]) => string[];
-// }
-
-describe("Kata Alphabetical Addition", () => {
-  it("Letters will always be lowercase", () => {
-    expect(_AlphabeticalAddition.addLetters('A', 'b')).toEqual(['a', 'b'])
-  })
-})
+describe('Kata AlphabeticalAddition', () => {
+    test('should be lowercase always the letters', () => {
+        expect(addLetters('a', 'B','c')).toStrictEqual(['a', 'b', 'c']);
+    });
+});

@@ -7,11 +7,6 @@
     "test": "jest",
     "test:watch": "jest --watch"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.jsx?$": "babel-jest"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RubenZagon/Kata-excersices.git"
@@ -24,7 +19,9 @@
   },
   "homepage": "https://github.com/RubenZagon/Kata-excersices#readme",
   "devDependencies": {
+    "@babel/core": "^7.7.7",
     "@babel/preset-env": "^7.7.7",
+    "@babel/preset-typescript": "^7.7.7",
     "@types/jest": "^24.0.25",
     "@types/node": "^13.1.2",
     "babel-jest": "^24.9.0",

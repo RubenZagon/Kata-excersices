@@ -32,7 +32,7 @@ const saveNegativeNumbers = (string) => {
   let splitString = string.split(delimiter);
   let negatNumber = [];
 
-  for (i = 0; i < splitString.length; i++) {
+  for (let i = 0; i < splitString.length; i++) {
     let passElementToNumber = parseInt(splitString[i]);
     if (!isNaN(passElementToNumber)) {
       if (passElementToNumber < 0) {
@@ -57,12 +57,12 @@ let passElementToNumber = (string, delimiter, i) => {
 }
 
 // Método sumar
-const addNumbers = (string, delimiter) => {
+const addNumbers  = (string, delimiter) => {
   let add = 0;
   let splitText = splitStringToArray(string, delimiter);
 
   //for (i = 0; i < splitString.length; i++) {
-  for (i = 0; i < splitText.length; i++) {
+  for (let i = 0; i < splitText.length; i++) {
 
     let passElementToNumber = parseInt(splitText[i]);
 
@@ -102,6 +102,7 @@ const delimiter = getDelimiter(textToCalculate);
 console.log(verify(textToCalculate, delimiter));
 
 module.exports = {
-  addNumbers
+  addNumbers,
+  verify
 }
 

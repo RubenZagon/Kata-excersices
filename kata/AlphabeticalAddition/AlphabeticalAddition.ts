@@ -1,11 +1,8 @@
-//const letters: string[] = ['a', 'b', 'c', 'd', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'ñ', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
-function addLetters(...letters: string[]) {
-
-  return letters
+export function addLetters(...letters: string[]) {
+  const lettersLower = letters.map(element => {
+      return element.toLowerCase()
+  });
+  
+  return lettersLower
+  
 }
-
-module.exports = {
-  addLetters
-}
-
