@@ -1,24 +1,34 @@
 {
-  "name": "Kata-excersices",
+  "name": "KataExcersices",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "test:watch":"jest --watch"
+    "test:watch": "jest --watch"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/RubenZagon/Kata-excersices.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ruben Zagon",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RubenZagon/Kata-excersices/issues"
   },
   "homepage": "https://github.com/RubenZagon/Kata-excersices#readme",
   "devDependencies": {
-    "jest": "^24.9.0"
+    "@babel/preset-env": "^7.7.7",
+    "@types/jest": "^24.0.25",
+    "@types/node": "^13.1.2",
+    "babel-jest": "^24.9.0",
+    "jest": "^24.9.0",
+    "typescript": "^3.7.4"
   }
 }
