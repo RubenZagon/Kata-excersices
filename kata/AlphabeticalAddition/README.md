@@ -1,3 +1,5 @@
+Exercise on :point_right:  [![CodeWars](https://www.qualified.io/shared/images/codewars-black-large-24a9d355.png =150x)](https://www.codewars.com/kata/58880c6e79a0a3e459000004/train/typescript)  
+
 ## Kata Alphabetical-Addition
 
 ### Instructions:
