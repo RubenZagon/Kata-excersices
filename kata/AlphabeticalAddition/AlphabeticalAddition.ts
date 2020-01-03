@@ -1,28 +1,36 @@
-const lettersAlphabetic = ['a', 'b', 'c', 'd','e', 'f', 'g', 'h', 'i' ,'j' ,'k', 'l' , 'm' , 'n' , 'ñ' , 'o' , 'p', 'q', 'r', 's', 't', 'u' , 'v', 'w', 'x', 'y', 'z']
-
 export function addLetters(...letters: string[]) {
-  
-  if (letters.length === 0 || letters[0] ==="z"){return 'z'}
-  
-  return lettersAlphabetic[letters.length].toLowerCase() 
+  const arrayLetters = 'abcdefghijklmnopqrstuvwxyz'.split('')
+  let add = 0;
+
+  if (letters.length === 0) { return 'z' }
+  if (letters.length === 1) { return letters[0] }
+
+  add = addFunction(add, letters, arrayLetters);
+
+  return arrayLetters[add - 1]
+
 }
 
-function convertToNumbers(arrayLetters:string[], letters:string[]) {
-  let newArray:number[] = []
-  let found = []
+function addFunction(add: number, letters: string[], arrayLetters: string[]) {
+  add = findMatchLetters(letters, arrayLetters, add);
+  add = reducerOverflow(add);
+  return add;
+}
 
-  arrayLetters.forEach((value:string, index: number) => {
-    found.push(arrayLetters.find((element, index) => {
-      letters[index] == element 
-      return index; //toy por aqui
-    }))
-    newArray.push(index)
+function reducerOverflow(add: number) {
+  while (add > 26) {
+    add -= 26;
+  }
+  return add;
+}
+
+function findMatchLetters(letters: string[], arrayLetters: string[], add: number) {
+  letters.forEach(elementLetters => {
+    arrayLetters.forEach((elementArrayLetters, index) => {
+      if (elementLetters === elementArrayLetters) {
+        add += index + 1;
+      }
+    });
   });
-  
-  console.log('Entontré esto ==>', found);
-  
-  return newArray
+  return add;
 }
-
-
-console.log(convertToNumbers(lettersAlphabetic, ['a','b', 'c']));
