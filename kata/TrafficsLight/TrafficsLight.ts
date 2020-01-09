@@ -113,12 +113,12 @@ export function trafficLights(road: string, n: number): string[] {
     //Volvemos a unir el array
     const roadToString: string = roadToArray.join("");
 
-    /*
+
     arrayTrafficLights.forEach((e, i) => {
       console.log(`Semáforo ${i + 1} - [${e.position}, ${e.state}, ${e.time}]`);
     });
 
-    
+
     console.log(`
     CICLO ${cicle}
 
@@ -130,7 +130,7 @@ export function trafficLights(road: string, n: number): string[] {
     ESTADO ACTUAL:
     ${roadToString}
     `);
-    */
+
 
     sim.push(roadToString);
   }
