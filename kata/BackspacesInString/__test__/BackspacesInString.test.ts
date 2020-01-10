@@ -1,4 +1,4 @@
-import { cleanString } from "..";
+import { cleanString } from "../BackspacesInString";
 
 describe("Clean String", () => {
   test("Con una letra - Si lee un # debe borrar el # con la anterior letra", () => {
