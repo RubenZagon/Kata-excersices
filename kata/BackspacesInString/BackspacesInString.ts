@@ -35,17 +35,20 @@ export function cleanString(s: string) {
   }
 */
 
-  while (counterHastag < foundEmpty.length) {
-    // Borro foundEmpy
-    foundEmpty = []
-    console.log('ESTOY ENTROO');
+  /*
+    while (counterHastag < foundEmpty.length) {
+      // Borro foundEmpy
+      foundEmpty = []
+      console.log('ESTOY ENTROO');
+  
+      stringToArray.forEach((element, index) => {
+        if (element === "") {
+          foundEmpty.push(index)
+        }
+      })
+    }
+  */
 
-    stringToArray.forEach((element, index) => {
-      if (element === "") {
-        foundEmpty.push(index)
-      }
-    })
-  }
   /*
     for (let i = counterHastag; i < foundEmpty.length; i++) {
         let findIndexFirstEmpty = stringToArray.indexOf("");
