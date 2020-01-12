@@ -41,10 +41,12 @@ export function trafficLights(road: string, n: number): string[] {
     if (cicle !== 0) {
       arrayTrafficLights.forEach((e, i) => {
         e.time--;
+        let positionTrafficLight = roadToArray[e.position];
 
-        if (roadToArray[e.position + 1] === "C") {
-          roadToArray[e.position] = "G";
-        }
+        // ESTE ME ESTÁ repintando el G cuando le sale de los cojoneh
+        // if (roadToArray[e.position + 1] === "C") {
+        //   roadToArray[e.position] = "G";
+        // }
 
         if (e.time === 0) {
           switch (e.state) {
@@ -76,6 +78,10 @@ export function trafficLights(road: string, n: number): string[] {
       finallyRoad = true;
     }
 
+    if (finallyRoad) {
+      roadToArray[carPosition] = ".";
+    }
+
     if (
       roadToArray[carPosition + 1] !== "R" &&
       cicle !== 0 &&
@@ -86,6 +92,7 @@ export function trafficLights(road: string, n: number): string[] {
       roadToArray[carPosition] = ".";
     }
 
+    /*
     // Si el último es un semaforo entonces que lo pinte
     if (
       roadToArray[roadToArray.length - 1] !== "C" &&
@@ -96,6 +103,8 @@ export function trafficLights(road: string, n: number): string[] {
     } else {
       roadToArray[carPosition] = ".";
     }
+*/
+
 
     // Repinte el semaforo cuando termina de pasar la "C"
     arrayTrafficLights.forEach(e => {
@@ -103,6 +112,7 @@ export function trafficLights(road: string, n: number): string[] {
         roadToArray[e.position] = e.state;
       }
     });
+
 
     /*
     // Llega al final del Array
@@ -114,6 +124,11 @@ export function trafficLights(road: string, n: number): string[] {
     const roadToString: string = roadToArray.join("");
 
 
+
+    /*  LOGS de depuración
+    
+    */
+
     arrayTrafficLights.forEach((e, i) => {
       console.log(`Semáforo ${i + 1} - [${e.position}, ${e.state}, ${e.time}]`);
     });
@@ -121,12 +136,13 @@ export function trafficLights(road: string, n: number): string[] {
 
     console.log(`
     CICLO ${cicle}
-
+    
     Coche:
     Anterior elemento ${roadToArray[carPosition - 1]}
     Posicion actual ${carPosition}
     Siguiente elemento ${roadToArray[carPosition + 1]}
-
+    Finaliza carretera ${finallyRoad}
+    
     ESTADO ACTUAL:
     ${roadToString}
     `);
