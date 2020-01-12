@@ -12,19 +12,30 @@ describe("Clean String", () => {
   });
 
   describe('Si lee ## seguido o más', () => {
-    test('Con dos hashtags seguidos, debe borrar tantas veces como # se encuentre', () => {
+    test('Debe borrar tantas veces como # se encuentre', () => {
       expect(cleanString("cjg##")).toEqual("c");
+      expect(cleanString("cjg###")).toEqual("");
+      expect(cleanString("cjg######")).toEqual("");
     });
+
+    test('Con letras de por medio entre hastags', () => {
+      expect(cleanString("abc#d##c")).toEqual("ac");
+      expect(cleanString("abc####d##c#")).toEqual("");
+      expect(cleanString("abjd####jfk#")).toEqual("jf");
+      expect(cleanString("gfh#jds###d#dsd####dasdaskhj###dhkjs####df##s##d##")).toEqual("gdasda");
+    })
   });
 
-  xdescribe("FINALLY TeST", () => {
-    test("TEst 1", () => {
-      expect(cleanString("abc#d##c")).toEqual("ac");
+  xdescribe('Randoms', () => {
+    test('Contemplando mayúsculas y números', () => {
+      expect(cleanString("gIOuEVAo8#wyIy#")).toEqual("gIOuEVAowyI");
+      expect(cleanString("rG1###wknb####")).toEqual("");
+      expect(cleanString("b#m#sqRE#vxc##X")).toEqual("sqRvX");
     });
-    test("TEst 2", () => {
-      expect(cleanString("abc####d##c#")).toEqual("");
+    test('Con espacios de por medio', () => {
+      expect(cleanString("d####E#pqfg## #")).toEqual("pqf");
     });
-  })
+  });
 });
 
 
