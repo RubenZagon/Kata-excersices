@@ -125,3 +125,45 @@ export function trafficLights(road: string, n: number): string[] {
 
   return sim;
 }
+
+
+
+/**
+ * Otra opción más optimizada por B1ts
+ *
+ *
+ *
+
+class TrafficUnit {
+  display: string;
+  iteration = 0;
+  colors = 'RGO';
+  intervals = [5, 5, 1];
+  constructor(type: string) {
+    this.display = type;
+  }
+  iterate(): void {
+    if (this.display === '.') return;  // No need to do anything with road pieces
+    this.iteration++;
+    if (this.iteration === this.intervals[this.colors.indexOf(this.display)]) {
+      this.iteration = 0;
+      this.display = this.display === 'R' ? 'G' : this.display === 'G' ? 'O' : 'R';
+    }
+  }
+}
+
+export function trafficLights(road: string, n: number) {
+  const result = [road];
+  const traffic = [...road].map(u => new TrafficUnit(u === 'C' ? '.' : u));
+  let carPos = 0;
+  for (let i = 0; i < n; i++) {
+    for (let unit of traffic) unit.iterate();
+    carPos += carPos >= road.length - 1 || ".G".includes(traffic[carPos + 1].display) ? 1 : 0;
+    result.push(traffic.map((u, i) => i === carPos ? 'C' : u.display).join(''));
+  }
+  return result;
+}
+
+
+ *
+ */
