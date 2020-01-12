@@ -31,16 +31,16 @@ describe("Traffic Lights", () => {
       expect(trafficLights("C..G.", 4)).toEqual(["C..G.", ".C.G.", "..CG.", "...C.", "...GC"]);
     });
 
-    test('Debería AVANZAR si se encuentra con un semáforo en ámbar 🈶', () => {
+    test('Debería PARAR si se encuentra con un semáforo en ámbar 🈶', () => {
       const result: string[] = [
         "C....G..", // 0
         ".C...G..", // 1
         "..C..G..", // 2
         "...C.G..", // 3
         "....CG..", // 4
-        ".....C..", // 5
-        ".....RC.", // 6
-        ".....R.C"  // 7
+        "....CO..", // 5
+        "....CR..", // 6
+        "....CR.."  // 7
       ];
 
       expect(trafficLights("C....G..", 7)).toEqual(result);
@@ -94,24 +94,47 @@ describe("Traffic Lights", () => {
       expect(trafficLights("..G......", 7)).toEqual(result);
     });
 
+    test('Estando al final se vuelve a repintar el semáforo', () => {
+      const result: string[] = [
+        "..G", // 0
+        "C.G", // 1
+        ".CG", // 2
+        "..C", // 3
+        "..G", // 4
+        "..O", // 5
+        "..R", // 6
+        "..R"  // 7
+      ];
 
+      expect(trafficLights("..G", 7)).toEqual(result);
+
+      const resultTwoTrafficLight: string[] = [
+        "..G.G", // 0
+        "C.G.G", // 1
+        ".CG.G", // 2
+        "..C.G", // 3
+        "..GCG", // 4
+        "..OCO", // 5
+        "..RCR", // 6
+        "..RCR"  // 7
+      ];
+
+      expect(trafficLights("..G.G", 7)).toEqual(resultTwoTrafficLight);
+
+      const resultThreeTrafficLight: string[] = [
+        "G.G.G", // 0
+        "C.G.G", // 1
+        "GCG.G", // 2
+        "G.C.G", // 3
+        "G.GCG", // 4
+        "O.OCO", // 5
+        "R.RCR", // 6
+        "R.RCR"  // 7
+      ];
+
+      expect(trafficLights("G.G.G", 7)).toEqual(resultThreeTrafficLight);
+    });
   });
 
-  xdescribe('Movimientos complejos', () => {
-    xtest("Should work for example test", () => {
-      expect(trafficLights("C...R............G......", 20)).toEqual([""]);
-    });
 
-    xtest("No lights", () => {
-      expect(trafficLights("C....", 10)).toEqual([""]);
-    });
-
-    xtest("Car falls off the end", () => {
-      expect(trafficLights("C.G...", 10)).toEqual([""]);
-    });
-
-    test("Red", () => {
-      expect(trafficLights("C.R...G...G.", 20)).toEqual([""]);
-    });
-  });
 });
