@@ -1,12 +1,9 @@
 ---
 to: kata/<%= name %>/<%= name %>.ts
 ---
-function <%= functionName %>  () {
+export function <%= functionName %>  () {
   
   return 
 }
 
-module.exports = {
-  <%= functionName %>
-}
 
