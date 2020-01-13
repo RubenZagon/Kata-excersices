@@ -18,3 +18,13 @@ export function cleanString(s: string) {
 
   return result
 }
+
+/**
+ * SOLUCIÓN OPTIMIZADA
+ *
+
+export function cleanString(s: string) {
+  return Array.from(s).reduce((a, b) => b == '#'? a.slice(0,-1) : a.concat(b), '')
+}
+
+ */
