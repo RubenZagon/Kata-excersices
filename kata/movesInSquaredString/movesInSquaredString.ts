@@ -1,4 +1,11 @@
+/**
+ * En CodeWars he tenido que suprimir el doble \\ ya que ahí no hace falta escapar el backslash
+ * 
+ */
+
 export function vertMirror(strng: string) {
+
+  // return strng.split("\n").map(s => s.split("").reverse().join("")).join("\n");
 
   let blockOfLetters: string[] = strng.split("\n");
 
@@ -18,13 +25,6 @@ export function horMirror(strng: string) {
   return strng.split("\n").reverse().join("\\n");
 }
 
-// FASE FINAL 
 export function oper(fct: (s: string) => string, s: string) {
+  return fct === horMirror ? horMirror(s) : vertMirror(s)
 }
-
-
-  // console.log(`
-  // Array nuevas letras ${blockOfLetters}
-
-  // Reordenada ${vertOrderArray.join("\\\ ")}
-  // `);

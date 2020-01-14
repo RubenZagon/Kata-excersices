@@ -25,10 +25,24 @@ describe("Kata-movesInSquaredString", () => {
     })
   });
 
-  // xdescribe('Función - oper', () => {
-  //   test("Should ", () => {
-  //     expect(oper(vertMirror("aab"), "aab")).toEqual()
-  //   })
-  // });
+  describe('Función - oper', () => {
+    test("Debe ordenar de manera HORIZONTAL ", () => {
+      expect(oper(horMirror, "dcba\nhgfe")).toEqual("hgfe\\ndcba")
+    })
+
+    test("Debe ordenar de manera VERTICAL ", () => {
+      expect(oper(vertMirror, "dcba\nhgfe")).toEqual("abcd\\nefgh")
+    })
+  })
+
+  describe('Fixed Test', () => {
+    test("Test básico de oper HORIZONTAL ", () => {
+      expect(oper(horMirror, "lVHt\nJVhv\nCSbg\nyeCt")).toEqual("yeCt\\nCSbg\\nJVhv\\nlVHt")
+    })
+
+    test("Test básico de oper VERTICAL ", () => {
+      expect(oper(vertMirror, "hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu")).toEqual("QHdgSh\\noaMDnH\\nXxNNlC\\nHxxvRi\\nAvVTqb\\nuRySvw")
+    })
+  });
 
 })
