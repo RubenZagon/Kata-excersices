@@ -1,6 +1,6 @@
-export function vertMirror(s: string) {
+export function vertMirror(strng: string) {
 
-  let blockOfLetters: string[] = s.split("\n");
+  let blockOfLetters: string[] = strng.split("\n");
 
   let vertOrderArray: string[] = blockOfLetters.map((el, index) => {
     let letters: string[] = el.split("");
@@ -12,17 +12,19 @@ export function vertMirror(s: string) {
     return index !== 0 ? "n" + vertOrderBlock : vertOrderBlock;
   })
 
-  console.log(`
-  Array nuevas letras ${blockOfLetters}
-
-  Reordenada ${vertOrderArray.join("\\\ ")}
-  `);
-
-  return vertOrderArray.join("\\\ ")
+  return vertOrderArray.join("\\")
 }
-export function horMirror(s: string) {
-  return ""
+export function horMirror(strng: string) {
+  return strng.split("\n").reverse().join("\\n");
 }
+
+// FASE FINAL 
 export function oper(fct: (s: string) => string, s: string) {
-  // your code
 }
+
+
+  // console.log(`
+  // Array nuevas letras ${blockOfLetters}
+
+  // Reordenada ${vertOrderArray.join("\\\ ")}
+  // `);
